@@ -2,6 +2,7 @@
 
 This guide provides comprehensive instructions for setting up various Model Context Protocol (MCP) servers with Claude Code. These tools dramatically enhance Claude Code's capabilities, allowing it to interact with your filesystem, web browsers, and more.
 
+
 ## What are MCP Servers?
 
 MCP (Model Context Protocol) Servers are extensions that give Claude Code new capabilities beyond just generating code. They allow Claude to interact with your computer in powerful ways:
@@ -28,6 +29,7 @@ MCP (Model Context Protocol) Servers are extensions that give Claude Code new ca
 - [Verifying Installation](#verifying-installation)
 - [Testing Each Tool](#testing-each-tool)
 - [Troubleshooting](#troubleshooting)
+
 
 ## One-Command Installation
 
@@ -69,6 +71,7 @@ Save this script as `install-mcp-servers.sh`, make it executable with `chmod +x 
 
 > **Note**: For Windows users, create a `.bat` file with the equivalent commands. You may need to add `cmd /c` before the npx commands.
 
+
 ## Essential MCP Servers
 
 ### 1. Sequential Thinking
@@ -86,6 +89,7 @@ claude mcp add sequential-thinking -s user -- npx -y @modelcontextprotocol/serve
 - No specific parameters to modify
 - Useful for breaking down complex problems into manageable steps
 
+
 ### 2. Filesystem Access
 
 **Purpose**: Allows Claude to read, write, and manipulate files on your computer within specified directories.
@@ -102,6 +106,7 @@ claude mcp add filesystem -s user -- npx -y @modelcontextprotocol/server-filesys
 - You can add as many directories as needed, separated by spaces
 - For read-only access with Docker, add `,ro` after directory paths
 
+
 ### 3. Puppeteer (Browser Automation)
 
 **Purpose**: Gives Claude the ability to navigate websites, take screenshots, and interact with web pages.
@@ -117,6 +122,7 @@ claude mcp add puppeteer -s user -- npx -y @modelcontextprotocol/server-puppetee
 - This version opens a visible browser window that Claude can control
 - For headless mode (no visible window), use Docker version instead
 
+
 ### 4. Web Fetching
 
 **Purpose**: Allows Claude to retrieve content from the web.
@@ -131,6 +137,7 @@ claude mcp add fetch -s user -- npx -y @kazuph/mcp-fetch
 **Parameters:**
 - No specific parameters to modify
 - Handles fetching web content with automatic processing of text and images
+
 
 ### 5. Brave Search
 
@@ -148,6 +155,7 @@ claude mcp add brave-search -s user -- env BRAVE_API_KEY=YOUR_API_KEY_HERE npx -
 - **API Key**: Replace `YOUR_API_KEY_HERE` with your [Brave Search API key](https://brave.com/search/api/)
 - Provides both web search and local business search capabilities
 - Free tier available with 2,000 queries/month
+
 
 ### 6. Firecrawl (Advanced Web Scraping)
 
@@ -168,6 +176,7 @@ claude mcp add firecrawl -s user -- env FIRECRAWL_API_KEY=fc-YOUR_API_KEY npx -y
   - `FIRECRAWL_RETRY_INITIAL_DELAY=2000` (in ms, default: 1000)
   - `FIRECRAWL_RETRY_MAX_DELAY=30000` (in ms, default: 10000)
   - `FIRECRAWL_CREDIT_WARNING_THRESHOLD=2000` (default: 1000)
+
 
 ### 7. Browser Tools (Chrome DevTools Integration)
 
@@ -201,6 +210,7 @@ claude mcp add browser-tools -s user -- npx -y @agentdeskai/browser-tools-mcp@1.
   - Token limits
   - Screenshot handling
 
+
 ## Common Command Parameters
 
 All MCP server commands share some common parameters:
@@ -218,6 +228,7 @@ All MCP server commands share some common parameters:
 - `--`: Separates Claude Code arguments from the command to run
 
 - `npx -y`: Runs an npm package without installing it permanently, auto-confirming
+
 
 ## Verifying Installation
 
@@ -240,6 +251,7 @@ To remove a server:
 claude mcp remove server-name
 ```
 </div>
+
 
 ## Testing Each Tool
 
@@ -282,9 +294,11 @@ Here are some quick prompts to test each tool:
   ```
   (Make sure Chrome DevTools is open with BrowserTools tab)
 
+
 ## Troubleshooting
 
 ### Windows Issues
+
 If commands don't work on Windows, try adding `cmd /c` before npx commands:
 
 <div style="background-color: #f6f8fa; padding: 16px; border-radius: 6px; border-left: 4px solid #0366d6;">
@@ -295,6 +309,7 @@ claude mcp add sequential-thinking -s user -- cmd /c npx -y @modelcontextprotoco
 </div>
 
 ### Timeout Errors
+
 Try increasing the timeout:
 
 <div style="background-color: #f6f8fa; padding: 16px; border-radius: 6px; border-left: 4px solid #0366d6;">
@@ -305,12 +320,17 @@ MCP_TIMEOUT=10000 claude
 </div>
 
 ### Browser Tools Issues
+
 - Ensure both the middleware server and the MCP server are running
 - Make sure Chrome DevTools is open with BrowserTools tab visible
 - Check that the Chrome extension is correctly installed
 
+
 ### Filesystem Access
+
 Make sure to use the correct paths for your system and that Claude has appropriate permissions
 
+
 ### Connection Problems
+
 Use `/mcp` in Claude Code to check connection status of all MCP servers
