@@ -63,6 +63,10 @@ claude mcp add fetch -s user -- npx -y @kazuph/mcp-fetch
 echo "🔍 Setting up domain tools..."
 claude mcp add domaintools -s user -- npx -y @patrickdappollonio/mcp-domaintools
 
+# Install Context7 MCP - Up-to-date Code Docs For Any Prompt
+echo "📚 Context7 MCP - Up-to-date Code Docs For Any Prompt..."
+claude mcp add context7 -- npx -y @upstash/context7-mcp
+
 # Verify installation
 echo "✅ Verifying installation..."
 claude mcp list
