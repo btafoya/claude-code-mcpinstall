@@ -59,12 +59,27 @@ claude mcp add puppeteer -s user -- npx -y @modelcontextprotocol/server-puppetee
 echo "🔍 Setting up Web Fetching..."
 claude mcp add fetch -s user -- npx -y @kazuph/mcp-fetch
 
+# Install Domain Tools MCP
+echo "🔍 Setting up domain tools..."
+claude mcp add domaintools -s user -- npx -y @patrickdappollonio/mcp-domaintools
+
 # Verify installation
 echo "✅ Verifying installation..."
 claude mcp list
 
 echo "🎉 Basic MCP servers installed successfully!"
 echo "📝 For API key-based servers (Brave Search, Firecrawl) and Browser Tools, see the README for individual setup instructions."
+
+# UV installation
+echo "🚀 Install UV"
+curl -Ls https://astral.sh/uv/install.sh | sh
+
+# SuperClaude installation
+echo "🚀 Install SuperClaude"
+uv venv
+source .venv/bin/activate
+uv pip install SuperClaude
+SuperClaude install --profile developer 
 ```
 
 Save this script as `install-mcp-servers.sh`, make it executable with `chmod +x install-mcp-servers.sh`, and run it.
