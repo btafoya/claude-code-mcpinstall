@@ -97,7 +97,7 @@ claude mcp add sequential-thinking -s user -- npx -y @modelcontextprotocol/serve
 <div style="background-color: #f6f8fa; padding: 16px; border-radius: 6px; border-left: 4px solid #0366d6;">
 
 ```bash
-claude mcp add filesystem -s user -- npx -y @modelcontextprotocol/server-filesystem ~/Documents ~/Desktop ~/Downloads ~/Projects
+claude mcp add filesystem -s user -- npx -y @modelcontextprotocol/server-filesystem /www
 ```
 </div>
 
