@@ -49,7 +49,7 @@ claude mcp add sequential-thinking -s user -- npx -y @modelcontextprotocol/serve
 
 # Install Filesystem MCP (customize directories as needed)
 echo "📁 Setting up Filesystem access..."
-claude mcp add filesystem -s user -- npx -y @modelcontextprotocol/server-filesystem ~/Documents ~/Desktop ~/Downloads ~/Projects
+claude mcp add filesystem -s user -- npx -y @modelcontextprotocol/server-filesystem /www
 
 # Install Puppeteer MCP
 echo "🌐 Setting up Puppeteer browser automation..."
